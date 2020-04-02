@@ -2,7 +2,7 @@ import React from "react";
 import "./prevew-collection.scss";
 import CollectionItem from "./../collection-item/collection-item.component";
 
-const PrevewCollection = ({ title, items }) => {
+const PreviewCollection = ({ title, items }) => {
   return (
     <div className="collection-preview">
       <h1 className="title">{title.toUpperCase()}</h1>
@@ -17,4 +17,4 @@ const PrevewCollection = ({ title, items }) => {
   );
 };
 
-export default PrevewCollection;
+export default PreviewCollection;

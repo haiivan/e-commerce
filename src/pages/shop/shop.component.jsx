@@ -1,25 +1,15 @@
-import React, { Component } from "react";
-import Shop_Data from "./shop.data";
-import PrevewCollection from "../../components/prevew-collection/prevew-collection.component";
+import React from "react";
+import CollectionsOverview from "../../components/collection-overview/collection-overview.component";
+import CollectionPage from "../collection/collection.component";
+import { Route } from "react-router";
 
-class ShopPage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      collections: Shop_Data
-    };
-  }
-
-  render() {
-    const { collections } = this.state;
-    return (
-      <div className="shop-page">
-        {collections.map(({ id, ...otherCollectionPorps }) => (
-          <PrevewCollection key={id} {...otherCollectionPorps} />
-        ))}
-      </div>
-    );
-  }
-}
+const ShopPage = ({ match }) => {
+  return (
+    <div className="shop-page">
+      <Route exact path={`${match.path}`} component={CollectionsOverview} />
+      <Route path={`${match.path}/:collectionId`} component={CollectionPage} />
+    </div>
+  );
+};
 
 export default ShopPage;
