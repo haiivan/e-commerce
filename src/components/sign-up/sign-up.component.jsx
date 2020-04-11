@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./sign-up.styles.scss";
+import { SignUpContainer, TitleContainer } from "./sign-up.styles";
 
 import CustomButton from "../custom-button/custom-button.component";
 import { auth, createUserProfileDocument } from "../../firebase/firebase.utils";
@@ -13,11 +13,11 @@ class SignUp extends Component {
       displayName: "",
       email: "",
       password: "",
-      confirmPassword: ""
+      confirmPassword: "",
     };
   }
 
-  handleSubmit = async event => {
+  handleSubmit = async (event) => {
     event.preventDefault();
     const { displayName, email, password, confirmPassword } = this.state;
     if (password !== confirmPassword) {
@@ -36,25 +36,25 @@ class SignUp extends Component {
         displayName: "",
         email: "",
         password: "",
-        confirmPassword: ""
+        confirmPassword: "",
       });
     } catch (error) {
       console.log(error);
     }
   };
 
-  handleChange = event => {
+  handleChange = (event) => {
     const { name, value } = event.target;
     this.setState({
-      [name]: value
+      [name]: value,
     });
   };
 
   render() {
     const { displayName, email, password, confirmPassword } = this.state;
     return (
-      <div className="sign-up">
-        <h2 className="title">I do not have an account</h2>
+      <SignUpContainer>
+        <TitleContainer>I do not have an account</TitleContainer>
         <span>Sign up with your email and password</span>
         <form className="sign-up-form" onSubmit={this.handleSubmit}>
           <FormInput
@@ -91,7 +91,7 @@ class SignUp extends Component {
           />
           <CustomButton type="submit">SIGN UP</CustomButton>
         </form>
-      </div>
+      </SignUpContainer>
     );
   }
 }
