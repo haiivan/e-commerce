@@ -10,7 +10,7 @@ import { selectCollection } from "../../redux/shop/shop.selectors";
 
 function CollectionPage({ collection }) {
   const { title, items } = collection;
-  console.log(collection);
+
   return (
     <CollectionPageContainer>
       <CollectionTitle>{title}</CollectionTitle>
